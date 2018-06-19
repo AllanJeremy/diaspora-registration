@@ -24,26 +24,19 @@
                 <div class="form-group">
                     <div class="form-row">
                         <div class="col-3">
-                        <div class="dropdown">
-                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <img src="<?= get_flag_url(strtolower($first_country->iso),16); ?>" class="pr-2"/><span id="current_country_code">+<?= $first_country->phonecode; ?></span>
-                            </button>
-
-                            <div class="dropdown-menu form-control country-option" aria-labelledby="dropdownMenuButton" style="overflow-y:scroll; max-height:30vh;">
+                            <select class="form-control" name="inputCountryCode" id="inputCountryCode">
                                 <?php 
                                     $count = 0;
                                     foreach($countries as $country): 
                                         $selected = $count==0 ? 'selected' : '';
                                         $flag_url = get_flag_url(strtolower($country->iso),16);
                                 ?>
-                                <a class="dropdown-item country-code" href="#"><img src="<?= $flag_url; ?>" class="pr-2"/> +<?= $country->phonecode; ?></a>
-                                    <!-- <option value="<?= $country->id; ?>" <?= $selected; ?>><span class="pr-2" style="background-image:url(<?= $flag_url;?>)"></span>+</option> -->
+                                <option value="<?= $country->id; ?>"><img src="<?= $flag_url; ?>" class="pr-2"/><?= $country->iso3.' (+'.$country->phonecode.')'; ?></option>
                                 <?php
                                     $count++; 
                                     endforeach;
                                 ?>
-                            </div>
-                            </div>
+                            <select>
                         </div>
                         <div class="col"><input class="form-control" type="tel" name="inputPhone" placeholder="Phone number" id="inputPhone"></div>
                     </div>
@@ -54,6 +47,7 @@
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/js/bootstrap.bundle.min.js"></script>
+    <script src="<?= get_asset_url('main.js','js'); ?>"></script>
 </body>
 
 </html>
