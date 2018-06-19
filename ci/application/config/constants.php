@@ -88,3 +88,11 @@ defined('EXIT__AUTO_MAX')      OR define('EXIT__AUTO_MAX', 125); // highest auto
 TABLES BEING USED
 */
 define('TBL_USERS','users');
+
+
+/*
+CUSTOM CONSTANTS
+*/
+define('API_RESPONSE_TYPE','application/json');
+define('MSG_REGISTRATION_SUCCESS','Registration was successful');
+define('MSG_REGISTRATION_FAILURE','Registration Failed');
