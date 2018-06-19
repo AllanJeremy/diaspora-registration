@@ -10,12 +10,12 @@
     <link rel="stylesheet" href="assets/css/styles.min.css">
 </head>
 
+<? var_dump($countries);?>
 <body>
     <div></div>
     <div style="background-image:url(&quot;https://images.pexels.com/photos/531880/pexels-photo-531880.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=650&amp;w=940&quot;);height:100vh;background-position:center;background-size:cover;background-repeat:no-repeat;min-height:100vh;">
         <div class="d-flex justify-content-center align-items-center" style="height:inherit;min-height:initial;width:100%;position:absolute;left:0;background-color:rgba(30,41,99,0.53);">
-            <div class="d-flex align-items-center order-12" style="height:200px;"></div>
-            <form method="post" class="padded-form" style="background-color:#e7e7e7;">
+            <form method="post" class="padded-form m-2" style="background-color:#e7e7e7;width:480px;">
                 <div class="alert alert-success d-none" role="alert"><span>Successfully sent the information<br></span></div>
                 <h2 class="text-uppercase text-center text-dark" style="line-height:36px;letter-spacing:1px;font-weight:300;">voting information</h2>
                 <div class="form-group"><input class="form-control" type="text" name="inputFirstName" placeholder="First name" id="inputFirstName"></div>
