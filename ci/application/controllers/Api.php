@@ -131,7 +131,7 @@ class Api extends CI_Controller
         if(!$captcha_is_valid)
         {
             $data_valid &= $captcha_is_valid;
-            $message .= 'Invalid captcha';//Failed to validate the captcha ~ possible bot/ddos attempt
+            $message .= '<p>Invalid captcha</p>';//Failed to validate the captcha ~ possible bot/ddos attempt
         }
         return array(
             'ok'=>$data_valid,
@@ -157,20 +157,23 @@ class Api extends CI_Controller
         $is_ok = $info_is_valid['ok'];
         $extra_info = '';
 
+        
         //If the information provided was valid ~ try adding the user
         if($info_is_valid['ok'])
         {
             $data['first_name'] = ucfirst($data['first_name']);
             $data['last_name'] = ucfirst($data['last_name']);
-            
+
+            #[Bugfix]
+            unset($data['captcha']);// Unset the captcha field so we only remain with db fields
+
             $info = $this->user_model->add_user($data);
-            
+
             // If there is any extra info, append it
             $extra_info = isset($info['message'])? '<br>'.$info['message'] : '';#TODO: KISS
             $is_ok &= $info['ok'];
         }
         
-        // var_dump($is_ok);
         //Append any errors if found
         $message = $is_ok ? MSG_REGISTRATION_SUCCESS : MSG_REGISTRATION_FAILURE;
         $message .= $info_is_valid['message'];
