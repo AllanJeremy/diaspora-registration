@@ -19,8 +19,22 @@ class User_model extends CI_Model
     private function _user_joins()
     {
         //TODO: Select only the values we need to avoid selecting passwords & sensitive information
-        $this->db->select('*');
+        $this->db->select(
+            TBL_USERS.'.id,'
+            .TBL_USERS.'.first_name,'
+            .TBL_USERS.'.last_name,'
+            .TBL_USERS.'.email,'
+            .TBL_USERS.'.country_code,'
+            
+            .TBL_COUNTRIES.'.name,'
+            .TBL_COUNTRIES.'.phone_code,'
+            .TBL_USERS.'.phone,'
+            
+            .TBL_USERS.'.active'
+        );
         $this->db->from(TBL_USERS);
+
+        $this->db->join(TBL_COUNTRIES,TBL_USERS.'.country_code='.TBL_COUNTRIES.'.id');
     }
 
     // Get users ~ $limit is the number of records to fetch
