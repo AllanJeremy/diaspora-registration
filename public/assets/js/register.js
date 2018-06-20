@@ -58,6 +58,7 @@ $(document).ready(function(){
             "email": email,
             "phone": phone,
             "country_code": countryCode,
+            "captcha": grecaptcha.getResponse()
         };
 
         console.log(data);

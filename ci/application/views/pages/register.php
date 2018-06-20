@@ -20,6 +20,8 @@
             to{margin-left: 100%;}
         }
     </style>
+
+    <script src='https://www.google.com/recaptcha/api.js'></script>
 </head>
 
 <? 
@@ -55,6 +57,9 @@ var_dump($_POST);?>
                         </div>
                         <div class="col"><input class="form-control" type="tel" name="inputPhone" placeholder="Phone number" id="inputPhone"></div>
                     </div>
+                </div>
+                <div class="form-group">
+                    <div class="g-recaptcha" data-sitekey="6Lco-18UAAAAAHEhkeQSMxWcszQ91yldI-XSCt6I"></div>
                 </div>
                 <div class="form-group"><a class="btn btn-success btn-block mt-4" role="button" href="#" id="btnRegister">REGISTER</a></div>
                 <div class="progress bg-dark d-none" style="height: 5px;" id="registerProgress">

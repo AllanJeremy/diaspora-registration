@@ -2,11 +2,15 @@
 
 class Api extends CI_Controller
 {
+    private static $_captcha_secret = '6Lco-18UAAAAALtgoGexFnv6vGhsNcXy-exFQYMQ';
+    private static $_captcha_verify_url = 'https://www.google.com/recaptcha/api/siteverify?';
+
     function __construct()
     {
         parent::__construct();
         $this->load->model('user_model');
     }
+    
     // Verify an API token
     protected function verify_token($token='12343534636')
     {
@@ -43,6 +47,31 @@ class Api extends CI_Controller
         return $this->_gen_response($is_ok,$message);
     }
 
+    //Validate captcha
+    private function _validate_captcha($captcha_response)//TODO: Convert into library
+    {
+        $validation_url = self::$_captcha_verify_url.'&response='.$captcha_response;
+        
+        //Send post request with CURL
+        $ch = curl_init();
+        curl_setopt($ch,CURLOPT_URL,self::$_captcha_verify_url);
+        curl_setopt($ch,CURLOPT_POST,1);
+        curl_setopt($ch,CURLOPT_POSTFIELDS,http_build_query(
+            array(
+                'secret'=>self::$_captcha_secret,
+                'response'=>$captcha_response,
+            ))
+        );
+        
+        curl_setopt($ch,CURLOPT_RETURNTRANSFER,TRUE);
+        
+        $captcha_result = json_decode(curl_exec($ch));
+        $captcha_is_valid = !empty($captcha_response) ? $captcha_result->success : FALSE;
+        
+        return $captcha_is_valid; 
+    }
+
+    //Validate the user's information
     protected function validate_user_info()
     {
         $this->load->library('form_validation');
@@ -87,10 +116,23 @@ class Api extends CI_Controller
             'alpha_numeric'
         ));
 
+        $this->form_validation->set_rules('captcha','Captcha','required',array(
+            'required'=>'Captcha is required. Please complete the captcha.'
+        ));
+
         // Validate the data
         $data_valid = $this->form_validation->run();
         $message = $data_valid ? '' : validation_errors();
 
+
+        //Validate the captcha
+        $captcha = $this->input->post_get('captcha');
+        $captcha_is_valid = $this->_validate_captcha($captcha);
+        if(!$captcha_is_valid)
+        {
+            $data_valid &= $captcha_is_valid;
+            $message .= 'Invalid captcha';//Failed to validate the captcha ~ possible bot/ddos attempt
+        }
         return array(
             'ok'=>$data_valid,
             'message'=>$message
@@ -118,6 +160,9 @@ class Api extends CI_Controller
         //If the information provided was valid ~ try adding the user
         if($info_is_valid['ok'])
         {
+            $data['first_name'] = ucfirst($data['first_name']);
+            $data['last_name'] = ucfirst($data['last_name']);
+            
             $info = $this->user_model->add_user($data);
             
             // If there is any extra info, append it
