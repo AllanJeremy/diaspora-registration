@@ -65,6 +65,7 @@ $(document).ready(function(){
 
         $.post(url,data).then(function(response){ //Show appropriate message
             _showResultMessage(response);
+            grecaptcha.reset();// Reset captcha
 
             //If the request was ok ~ clear the form fields
             if(response.ok)
