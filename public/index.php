@@ -85,7 +85,7 @@ switch (ENVIRONMENT)
 	case 'testing':
 	case 'production':
 		$base_ci_dir = '../../../tg_hookup_bot';
-		ini_set('display_errors', 1);#TODO: Return this back to 0 for final production
+		ini_set('display_errors', 0);#TODO: Change to 1 temporarily for testing in production
 		if (version_compare(PHP_VERSION, '5.3', '>='))
 		{
 			error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED & ~E_STRICT & ~E_USER_NOTICE & ~E_USER_DEPRECATED);
