@@ -73,18 +73,16 @@
  * By default development will show errors but testing and live will hide them.
  */
 
-$base_ci_dir = '';#Directory the ci files can be found in
+$base_ci_dir = '../ci';#Directory the ci files can be found in
 switch (ENVIRONMENT)
 {
 	case 'development':
-		$base_ci_dir = '../ci';
 		error_reporting(-1);
 		ini_set('display_errors', 1);
 	break;
 		
 	case 'testing':
 	case 'production':
-		$base_ci_dir = '../../../tg_hookup_bot';
 		ini_set('display_errors', 0);#TODO: Change to 1 temporarily for testing in production
 		if (version_compare(PHP_VERSION, '5.3', '>='))
 		{
