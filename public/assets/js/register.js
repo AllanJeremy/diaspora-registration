@@ -19,20 +19,52 @@ $(document).ready(function(){
         },400);//The number of milliseconds the progress bar will stall
     });
 
+
+
     //Validate user input in the register form
     function validateRegisterInfo()
     {
+        return true;
+    }
+
+    function _showResultMessage(response)
+    {
+        var $resultMessageAlert = $('#resultMessageAlert');
+        $resultMessageAlert.removeClass('alert-success');
+        $resultMessageAlert.removeClass('alert-danger');
+
+        var alertClass = response.ok ? 'alert-success' : 'alert-danger';
+        var alertContent = response.message;
         
+        $resultMessageAlert.html(alertContent);
+        $resultMessageAlert.addClass(alertClass);
+        $resultMessageAlert.removeClass('d-none');
     }
 
     //Register user
     function registerUser()
     {
-        var url = baseApiUrl+'';
-        var data;
+        var firstName = $('#inputFirstName').val();
+        var lastName = $('#inputLastName').val();
+        var email = $('#inputEmail').val();
+        var phone = $('#inputPhone').val();
+        var countryCode = $('#inputCountryCode').val();
+
+        var url = baseApiUrl+'add_user';
+        var data = {
+            "first_name": firstName,
+            "last_name": lastName,
+            "email": email,
+            "phone": phone,
+            "country_code": countryCode,
+        };
+
+        console.log(data);
 
         $.post(url,data,function(){
 
+        }).then(function(response){ //Show appropriate message
+            _showResultMessage(response);
         });
     }
     //Register button clicked

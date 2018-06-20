@@ -75,7 +75,7 @@ class User_model extends CI_Model
         //Using model to validate since we are using ajax requests (form validation would take work to set up). 
         $user_exists = $this->get_user(TBL_USERS.'.email',$data['email']) !== NULL;
 
-        $is_ok &= $this->db->insert($data,TBL_USERS);
+        $is_ok &= $this->db->insert(TBL_USERS,$data);
         $return_val = array(
             'ok'=> $is_ok,
             'message'=>$message

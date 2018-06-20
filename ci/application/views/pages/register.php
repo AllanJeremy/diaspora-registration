@@ -31,7 +31,7 @@ var_dump($_POST);?>
         <div class="d-flex justify-content-center align-items-center" style="height:inherit;min-height:initial;width:100%;position:absolute;left:0;background-color:rgba(30,41,99,0.53);">
         
             <form method="post" class="padded-form m-2" style="background-color:#e7e7e7;width:480px;">
-                <div class="alert alert-success d-none" role="alert"><span>Successfully sent the information<br></span></div>
+                <div class="alert d-none" role="alert" id="resultMessageAlert"><span>Successfully sent the information<br></span></div>
                 <h2 class="text-uppercase text-center text-dark" style="line-height:36px;letter-spacing:1px;font-weight:300;">voting information</h2>
                 <div class="form-group"><input class="form-control" type="text" name="inputFirstName" placeholder="First name" id="inputFirstName"></div>
                 <div class="form-group"><input class="form-control" type="text" name="inputLastName" placeholder="Last name" id="inputLastName"></div>
