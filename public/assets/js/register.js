@@ -27,6 +27,7 @@ $(document).ready(function(){
         return true;
     }
 
+    // Show the alert box at the top
     function _showResultMessage(response)
     {
         var $resultMessageAlert = $('#resultMessageAlert');

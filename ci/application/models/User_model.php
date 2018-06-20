@@ -51,31 +51,8 @@ class User_model extends CI_Model
             $message = 'No data sent ~ invalid request';
         }
 
-        #TODO: Consider using form validation to check this
-        //Check if there is any required field that hasn't been provided
-        foreach(self::$required_fields as $field)//TODO: Consider refactoring into library
-        {
-            if(!isset($data[$field]))
-            {
-                $is_ok = FALSE;
-
-                //Format field to look like actual words 
-                $field = str_replace('_',' ',$field); #Remove underscore and replace with space
-                $message .= ucfirst($field).' is required <br>';#Capitalize first word
-            }
-        }
-
-        if(!$is_ok)
-        {
-            return array(
-                'ok'=>$is_ok,
-                'message'=>$message
-            );#TODO: DRY this out ~ repeated at bottom
-        }
-        //Using model to validate since we are using ajax requests (form validation would take work to set up). 
-        $user_exists = $this->get_user(TBL_USERS.'.email',$data['email']) !== NULL;
-
         $is_ok &= $this->db->insert(TBL_USERS,$data);
+        
         $return_val = array(
             'ok'=> $is_ok,
             'message'=>$message
