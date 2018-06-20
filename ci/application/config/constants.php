@@ -95,5 +95,6 @@ define('TBL_COUNTRIES','countries');
 CUSTOM CONSTANTS
 */
 define('API_RESPONSE_TYPE','application/json');
-define('MSG_REGISTRATION_SUCCESS','Registration was successful');
-define('MSG_REGISTRATION_FAILURE','Registration Failed');
+define('MSG_REGISTRATION_SUCCESS','<b>Registration was successful</b>');
+define('MSG_REGISTRATION_FAILURE','<b>Registration Failed</b>');
+define('MSG_EMAIL_EXISTS','The Email already exists');

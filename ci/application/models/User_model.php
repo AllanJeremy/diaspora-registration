@@ -18,6 +18,7 @@ class User_model extends CI_Model
     // User table joins
     private function _user_joins()
     {
+        //TODO: Select only the values we need to avoid selecting passwords & sensitive information
         $this->db->select('*');
         $this->db->from(TBL_USERS);
     }
@@ -39,7 +40,7 @@ class User_model extends CI_Model
         return $this->db->get()->row();
     }
     // Insert user data into database
-    public function add_user($data=NULL)
+    public function add_user($data)
     {
         $is_ok = TRUE;
         $message = '';

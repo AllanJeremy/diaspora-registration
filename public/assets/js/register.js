@@ -62,10 +62,17 @@ $(document).ready(function(){
 
         console.log(data);
 
-        $.post(url,data,function(){
-
-        }).then(function(response){ //Show appropriate message
+        $.post(url,data).then(function(response){ //Show appropriate message
             _showResultMessage(response);
+
+            //If the request was ok ~ clear the form fields
+            if(response.ok)
+            {
+                $('#inputFirstName').val('');
+                $('#inputLastName').val('');
+                $('#inputEmail').val('');
+                $('#inputPhone').val('');
+            }
         });
     }
     //Register button clicked
