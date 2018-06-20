@@ -2,6 +2,11 @@
 
 class Api extends CI_Controller
 {
+    function __construct()
+    {
+        parent::__construct();
+        $this->load->model('user_model');
+    }
     // Verify an API token
     protected function verify_token($token='12343534636')
     {
@@ -49,11 +54,15 @@ class Api extends CI_Controller
         }
         else
         {
-            $data = $this->input->post_get();
-            $this->load->model('User_model');
-            
-            $is_ok = $this->user_model->add_user($data);
+            $data = $this->input->post();
+            $info = $this->user_model->add_user($data);
+            $is_ok = $info['ok'];
             $message = $is_ok ? MSG_REGISTRATION_SUCCESS : MSG_REGISTRATION_FAILURE;
+
+            // If there is any extra info, append it
+            $extra_info = isset($info['message'])? '<br>'.$info['message'] : '';#TODO: KISS
+            $message .= $extra_info;
+
             $response = $this->_gen_response($is_ok,$message);
         }
         
