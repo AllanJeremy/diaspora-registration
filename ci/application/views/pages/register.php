@@ -7,14 +7,29 @@
     <title>Diaspora Register</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/4.1.1/materia/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
-    <link rel="stylesheet" href="assets/css/styles.min.css">
+    <link rel="stylesheet" href="<?= get_asset_url('styles.min.css','css'); ?>">
+    <style>
+        /* Progress bar animation */
+        .progress-infinite{           
+            animation: progress_loader 1s infinite linear;
+        }
+
+        @keyframes progress_loader
+        {
+            from{margin-left: -50%;}
+            to{margin-left: 100%;}
+        }
+    </style>
 </head>
 
-<? var_dump($countries);?>
+<? 
+$ci = &get_instance();
+var_dump($_POST);?>
 <body>
     <div></div>
     <div style="background-image:url(&quot;https://images.pexels.com/photos/531880/pexels-photo-531880.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=650&amp;w=940&quot;);height:100vh;background-position:center;background-size:cover;background-repeat:no-repeat;min-height:100vh;">
         <div class="d-flex justify-content-center align-items-center" style="height:inherit;min-height:initial;width:100%;position:absolute;left:0;background-color:rgba(30,41,99,0.53);">
+        
             <form method="post" class="padded-form m-2" style="background-color:#e7e7e7;width:480px;">
                 <div class="alert alert-success d-none" role="alert"><span>Successfully sent the information<br></span></div>
                 <h2 class="text-uppercase text-center text-dark" style="line-height:36px;letter-spacing:1px;font-weight:300;">voting information</h2>
@@ -42,12 +57,15 @@
                     </div>
                 </div>
                 <div class="form-group"><a class="btn btn-success btn-block mt-4" role="button" href="#" id="btnRegister">REGISTER</a></div>
+                <div class="progress bg-dark d-none" style="height: 5px;" id="registerProgress">
+                    <div class="progress-bar progress-infinite" role="progressbar" style="width: 50%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
             </form>
         </div>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/js/bootstrap.bundle.min.js"></script>
-    <script src="<?= get_asset_url('main.js','js'); ?>"></script>
+    <script src="<?= get_asset_url('register.js','js'); ?>"></script>
 </body>
 
 </html>
