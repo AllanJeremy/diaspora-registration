@@ -24,46 +24,50 @@
     <script src='https://www.google.com/recaptcha/api.js'></script>
 </head>
 
-<body>
-    <div style="height:auto;background-position:center;">    
-        <div class="d-flex flex-column justify-content-center align-items-center" style="height:inherit;min-height:initial;width:100%;position:absolute;left:0;">
-            <div class="pt-4 pb-2">
-                <h1 class="text-success">Kenya Diaspora Must Vote</h1>
-            </div>
-            <form method="post" class="padded-form m-2 mb-4" style="background-color:#e7e7e7;width:480px;">
-                <div class="alert d-none" role="alert" id="resultMessageAlert"><span>Successfully sent the information<br></span></div>
-                <h2 class="text-center text-dark" style="line-height:36px;letter-spacing:1px;font-weight:300;">Join The Campaign</h2>
-                <div class="form-group"><input class="form-control" type="text" name="inputFirstName" placeholder="First name" id="inputFirstName"></div>
-                <div class="form-group"><input class="form-control" type="text" name="inputLastName" placeholder="Last name" id="inputLastName"></div>
-                <div class="form-group"><input class="form-control" type="email" name="inputEmail" placeholder="Email" id="inputEmail"></div>
-                <div class="form-group">
-                    <div class="form-row">
-                        <div class="col-3">
-                            <select class="form-control" name="inputCountryCode" id="inputCountryCode">
-                                <?php 
-                                    $count = 0;
-                                    foreach($countries as $country): 
-                                        $selected = $count==0 ? 'selected' : '';
-                                        $flag_url = get_flag_url(strtolower($country->iso),16);
-                                ?>
-                                <option value="<?= $country->id; ?>"><img src="<?= $flag_url; ?>" class="pr-2"/><?= $country->iso3.' (+'.$country->phonecode.')'; ?></option>
-                                <?php
-                                    $count++; 
-                                    endforeach;
-                                ?>
-                            <select>
+<body style="overflow-x:hidden">
+
+    <div class="row">
+        <div class="col-md-8 col-lg-6 col-xl-5 ml-auto mr-auto" style="height:auto;">
+            <div class="p-2 d-flex flex-column justify-content-center align-items-center" style="height:auto;">
+                <div class="pt-4 pb-4">
+                    <h1 class="d-none d-sm-inline text-success">Kenya Diaspora Must Vote</h1>
+                    <h2 class="d-inline d-sm-none text-success">Kenya Diaspora Must Vote</h2>
+                </div>
+                <form method="post" class="padded-form mb-2 w-100" style="background-color:#e7e7e7;width:480px;">
+                    <div class="alert d-none" role="alert" id="resultMessageAlert"><span>Successfully sent the information<br></span></div>
+                    <h2 class="text-center text-dark" style="line-height:36px;letter-spacing:1px;font-weight:300;">Join The Campaign</h2>
+                    <div class="form-group"><input class="form-control" type="text" name="inputFirstName" placeholder="First name" id="inputFirstName"></div>
+                    <div class="form-group"><input class="form-control" type="text" name="inputLastName" placeholder="Last name" id="inputLastName"></div>
+                    <div class="form-group"><input class="form-control" type="email" name="inputEmail" placeholder="Email" id="inputEmail"></div>
+                    <div class="form-group">
+                        <div class="form-row">
+                            <div class="col-3">
+                                <select class="form-control" name="inputCountryCode" id="inputCountryCode">
+                                    <?php 
+                                        $count = 0;
+                                        foreach($countries as $country): 
+                                            $selected = $count==0 ? 'selected' : '';
+                                            $flag_url = get_flag_url(strtolower($country->iso),16);
+                                    ?>
+                                    <option value="<?= $country->id; ?>"><img src="<?= $flag_url; ?>" class="pr-2"/><?= $country->iso3.' (+'.$country->phonecode.')'; ?></option>
+                                    <?php
+                                        $count++; 
+                                        endforeach;
+                                    ?>
+                                <select>
+                            </div>
+                            <div class="col"><input class="form-control" type="tel" name="inputPhone" placeholder="Phone number" id="inputPhone"></div>
                         </div>
-                        <div class="col"><input class="form-control" type="tel" name="inputPhone" placeholder="Phone number" id="inputPhone"></div>
                     </div>
-                </div>
-                <div class="form-group">
-                    <div class="g-recaptcha" data-sitekey="6Lco-18UAAAAAHEhkeQSMxWcszQ91yldI-XSCt6I"></div>
-                </div>
-                <div class="form-group"><a class="btn btn-success btn-block mt-4" role="button" href="#" id="btnRegister">REGISTER</a></div>
-                <div class="progress bg-dark d-none" style="height: 5px;" id="registerProgress">
-                    <div class="progress-bar progress-infinite" role="progressbar" style="width: 50%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-            </form>
+                    <div class="form-group">
+                        <div class="g-recaptcha" data-sitekey="6Lco-18UAAAAAHEhkeQSMxWcszQ91yldI-XSCt6I"></div>
+                    </div>
+                    <div class="form-group"><a class="btn btn-success btn-block mt-4" role="button" href="#" id="btnRegister">REGISTER</a></div>
+                    <div class="progress bg-dark d-none" style="height: 5px;" id="registerProgress">
+                        <div class="progress-bar progress-infinite" role="progressbar" style="width: 50%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
