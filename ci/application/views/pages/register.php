@@ -35,7 +35,11 @@
                 </div>
                 <form method="post" class="padded-form mb-2 w-100" style="background-color:#e7e7e7;width:480px;">
                     <div class="alert d-none" role="alert" id="resultMessageAlert"><span>Successfully sent the information<br></span></div>
-                    <h2 class="text-center text-dark" style="line-height:36px;letter-spacing:1px;font-weight:300;">Join The Campaign</h2>
+
+                    <div class="form-group text-center text-dark">
+                        <h2 class="d-none d-sm-inline" style="line-height:36px;letter-spacing:1px;font-weight:300;">Join The Campaign</h2>
+                        <h3 class="d-inline d-sm-none" style="line-height:36px;letter-spacing:1px;font-weight:300;">Join The Campaign</h3>
+                    </div>
                     <div class="form-group"><input class="form-control" type="text" name="inputFirstName" placeholder="First name" id="inputFirstName"></div>
                     <div class="form-group"><input class="form-control" type="text" name="inputLastName" placeholder="Last name" id="inputLastName"></div>
                     <div class="form-group"><input class="form-control" type="email" name="inputEmail" placeholder="Email" id="inputEmail"></div>
