@@ -5,7 +5,7 @@
     <?php $this->load->view('templates/head_content'); ?>
 </head>
 
-<body style="overflow-y:hidden;">
+<body>
     <?php 
         $nav_active['home_active'] = ACTIVE_NAV_ITEM_CLASS;
         $this->load->view('templates/navigation',$nav_active); 
@@ -16,7 +16,7 @@
                 <div class="container">
                     <h1 class="text-center p-2" style="color:rgb(242,245,248);font-size:56px;font-weight:bold;font-family:Roboto, sans-serif;">DIASPORA MUST VOTE</h1>
                     <h3 class="text-center p-2" style="color:rgb(242,245,248);padding-bottom:0.25em;font-weight:300;font-size:24px;line-height:32px;">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident,&nbsp;</h3>
-                    <p class="text-center pt-4 pb-4"><a class="btn btn-secondary btn-lg p-4" role="button" href="#" id="btn-joinCampaign">JOIN THE CAMPAIGN</a></p>
+                    <p class="text-center pt-4 pb-4"><a class="btn btn-secondary btn-lg p-4" role="button" href="<?= base_url('petition'); ?>" id="btn-joinCampaign">JOIN THE CAMPAIGN</a></p>
                 </div>
             </div>
         </div>
