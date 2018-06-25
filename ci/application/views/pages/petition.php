@@ -20,8 +20,10 @@
 </head>
 
 <body style="overflow-x:hidden">
-    <?php $this->load->view('templates/navigation'); ?>
-
+    <?php 
+        $nav_active['petition_active'] = ACTIVE_NAV_ITEM_CLASS;
+        $this->load->view('templates/navigation',$nav_active); 
+    ?>
     <div class="container pt-3">
         <div class="row">
             <div class="col-md-8 col-lg-6 col-xl-5 ml-auto mr-auto" style="height:auto;">

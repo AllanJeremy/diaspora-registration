@@ -6,7 +6,10 @@
 </head>
 
 <body style="overflow-y:hidden;">
-    <?php $this->load->view('templates/navigation'); ?>
+    <?php 
+        $nav_active['home_active'] = ACTIVE_NAV_ITEM_CLASS;
+        $this->load->view('templates/navigation',$nav_active); 
+    ?>
     <div style="background-image:url(&quot;assets/img/pexels-photo-450059.jpeg&quot;);background-position:center;background-size:cover;background-repeat:no-repeat;height:96vh;">
         <div class="d-flex justify-content-center align-items-center pt-4" style="height:inherit;min-height:initial;width:100%;position:absolute;left:0;background:linear-gradient(rgba(95,176,88,0.45),rgba(57,137,50,0.7));">
             <div class="d-flex align-items-center order-12" style="height:200px;">

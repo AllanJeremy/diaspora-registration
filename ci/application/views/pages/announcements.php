@@ -6,7 +6,10 @@
 </head>
 
 <body style="background-color:rgb(248,248,248);">
-    <?php $this->load->view('templates/navigation'); ?>
+    <?php 
+        $nav_active['announcements_active'] = ACTIVE_NAV_ITEM_CLASS;
+        $this->load->view('templates/navigation',$nav_active); 
+    ?>
     
     <div class="container mt-4">
         <div class="row">

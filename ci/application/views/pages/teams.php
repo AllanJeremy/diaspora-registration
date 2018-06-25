@@ -21,8 +21,10 @@
 
 
 <body>
-    <?php $this->load->view('templates/navigation'); ?>
-    
+    <?php 
+        $nav_active['teams_active'] = ACTIVE_NAV_ITEM_CLASS;
+        $this->load->view('templates/navigation',$nav_active); 
+    ?>
     <div class="container" id="teams">
         <div class="row no-gutters team-row">
             <div class="col-md-6">
