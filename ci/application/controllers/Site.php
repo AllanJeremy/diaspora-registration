@@ -18,7 +18,15 @@ class Site extends CI_Controller
     //View any other page
     function view($page)
     {
+        //If the view file does not exist 
+        if(!file_exists(APPPATH.'views/pages/'.$page.'.php'))
+        {
+            show_404();
+        }
+        $data['page'] = $page;
+        $data['page_title'] = ucfirst($page);
 
+        $this->load->view(SITE_VIEW_PATH.'pages/'.$page,$data);
     }
 
 }

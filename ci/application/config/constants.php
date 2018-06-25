@@ -94,6 +94,7 @@ define('TBL_COUNTRIES','countries');
 /*
 CUSTOM CONSTANTS
 */
+define('SITE_VIEW_PATH','');
 define('API_RESPONSE_TYPE','application/json');
 define('MSG_REGISTRATION_SUCCESS','<b>Registration was successful</b>');
 define('MSG_REGISTRATION_FAILURE','<b>Registration Failed</b>');
