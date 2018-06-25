@@ -2,12 +2,7 @@
 <html>
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Diaspora Register</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/4.1.1/materia/bootstrap.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
-    <link rel="stylesheet" href="<?= get_asset_url('styles.min.css','css'); ?>">
+    <?php $this->load->view('templates/head_content'); ?>
     <style>
         /* Progress bar animation */
         .progress-infinite{           
@@ -25,15 +20,16 @@
 </head>
 
 <body style="overflow-x:hidden">
+    <?php $this->load->view('templates/navigation'); ?>
 
-    <div class="container">
+    <div class="container pt-3">
         <div class="row">
             <div class="col-md-8 col-lg-6 col-xl-5 ml-auto mr-auto" style="height:auto;">
                 <div class="d-flex flex-column justify-content-center align-items-center" style="height:auto;">
-                    <div class="pt-4 pb-4">
+                    <!-- <div class="pt-4 pb-4">
                         <h1 class="d-none d-sm-inline text-success">Kenya Diaspora Must Vote</h1>
                         <h2 class="d-inline d-sm-none text-success">Kenya Diaspora Must Vote</h2>
-                    </div>
+                    </div> -->
                     <form method="post" class="p-4 mb-2 w-100" style="background-color:#e7e7e7;width:480px;">
                         <div class="alert d-none" role="alert" id="resultMessageAlert"><span>Successfully sent the information<br></span></div>
                         <div class="pr-sm-4 pl-sm-4">
@@ -77,9 +73,7 @@
             </div>
         </div>
     </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/js/bootstrap.bundle.min.js"></script>
-    <script src="<?= get_asset_url('register.js','js'); ?>"></script>
+    <?php $this->load->view('templates/scripts'); ?>
 </body>
 
 </html>

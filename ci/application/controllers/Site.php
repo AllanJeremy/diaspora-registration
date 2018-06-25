@@ -12,7 +12,7 @@ class Site extends CI_Controller
             'countries'=> $countries->result_object(),
         );
 
-        $this->load->view('pages/register',$data);
+        $this->load->view('pages/index',$data);
     }
 
     //View any other page
