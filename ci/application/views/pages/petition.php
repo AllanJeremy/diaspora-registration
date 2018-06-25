@@ -24,7 +24,7 @@
         $nav_active['petition_active'] = ACTIVE_NAV_ITEM_CLASS;
         $this->load->view('templates/navigation',$nav_active); 
     ?>
-    <div class="container pt-3">
+    <div class="container mt-3 mb-4">
         <div class="row">
             <div class="col-md-8 col-lg-6 col-xl-5 ml-auto mr-auto" style="height:auto;">
                 <div class="d-flex flex-column justify-content-center align-items-center" style="height:auto;">

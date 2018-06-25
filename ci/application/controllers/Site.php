@@ -8,11 +8,9 @@ class Site extends CI_Controller
     {
         $this->load->model('country_model');
         $countries = $this->country_model->get_countries();
-        $data = array(
-            'countries'=> $countries->result_object(),
-        );
+        $data['countries'] = $countries->result_object();
 
-        $this->load->view('pages/index',$data);
+        $this->load->view('pages/home',$data);
     }
 
     private function _get_nav_text($navitem_name,$active_page)
@@ -31,16 +29,29 @@ class Site extends CI_Controller
     //View any other page
     function view($page)
     {
+        switch($page)
+        {
+            case 'teams':
+
+        }
         //If the view file does not exist 
         if(!file_exists(APPPATH.'views/pages/'.$page.'.php'))
         {
             show_404();
         } 
         
+        //If we are on the teams or home page ~ load appropriate models
+        if($page == 'teams' || $page == 'home')
+        {
+            $this->load->model('country_model');
+            $countries = $this->country_model->get_countries();
+            $data['countries'] = $countries->result_object();
+        }
+        
         $data['nav_active'] = array();
         
         $data['page'] = $page;
-        $data['page_title'] = ucwords(SITE_TITLE).ucfirst($page);
+        $data['page_title'] = ucfirst($page).' | '.ucwords(SITE_TITLE);
 
         $view_to_load = SITE_VIEW_PATH.'pages/'.$page;
         $this->load->view($view_to_load,$data);
