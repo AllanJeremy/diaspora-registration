@@ -50,6 +50,8 @@ $(document).ready(function(){
         var email = $('#inputEmail').val();
         var phone = $('#inputPhone').val();
         var countryCode = $('#inputCountryCode').val();
+        var teamId = $('#inputTeam').val();
+       
 
         var url = baseApiUrl+'add_user';
         var data = {
@@ -58,10 +60,14 @@ $(document).ready(function(){
             "email": email,
             "phone": phone,
             "country_code": countryCode,
+            
             "captcha": grecaptcha.getResponse()
         };
 
-        console.log(data);
+        //If there is a valid team ID ~ meaning we are in teams page, add the team_id to data
+        if(teamId){
+            data.team_id = teamId;
+        }
 
         $.post(url,data).then(function(response){ //Show appropriate message
             _showResultMessage(response);

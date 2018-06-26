@@ -89,7 +89,8 @@ TABLES BEING USED
 */
 define('TBL_USERS','users');
 define('TBL_COUNTRIES','countries');
-
+define('TBL_TEAMS','teams');
+define('TBL_ANNOUNCMENTS','announcements');
 
 /*
 CUSTOM CONSTANTS

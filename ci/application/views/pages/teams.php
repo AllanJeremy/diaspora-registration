@@ -163,10 +163,7 @@
         <div class="row">
             <div class="col-md-8 col-lg-6 col-xl-5 ml-auto mr-auto" style="height:auto;">
                 <div class="d-flex flex-column justify-content-center align-items-center" style="height:auto;">
-                    <!-- <div class="pt-4 pb-4">
-                        <h1 class="d-none d-sm-inline text-success">Kenya Diaspora Must Vote</h1>
-                        <h2 class="d-inline d-sm-none text-success">Kenya Diaspora Must Vote</h2>
-                    </div> -->
+
                     <form method="post" class="p-4 mb-2 w-100" style="background-color:#e7e7e7;width:480px;">
                         <div class="alert d-none" role="alert" id="resultMessageAlert"><span>Successfully sent the information<br></span></div>
                         <div class="pr-sm-4 pl-sm-4">
@@ -177,6 +174,23 @@
                             <div class="form-group"><input class="form-control" type="text" name="inputFirstName" placeholder="First name" id="inputFirstName"></div>
                             <div class="form-group"><input class="form-control" type="text" name="inputLastName" placeholder="Last name" id="inputLastName"></div>
                             <div class="form-group"><input class="form-control" type="email" name="inputEmail" placeholder="Email" id="inputEmail"></div>
+                            <div class="form-group">
+                                <select name="inputTeam" id="inputTeam" class="form-control">
+                                    <optgroup label="Team">
+                                        <?php 
+                                        if(isset($teams) && @count($teams)>0): 
+                                            foreach($teams as $team):
+                                        ?>
+                                        <option value="<?= $team->id;?>"><?= $team->team_name; ?></option>
+                                        <?php 
+                                            endforeach;
+                                        else:
+                                        ?>
+                                        <option value="">No Teams found</option>
+                                        <?php endif;?>
+                                    </optgroup>
+                                </select>
+                            </div>
                             <div class="form-group">
                                 <div class="form-row">
                                     <div class="col-3">
@@ -211,6 +225,7 @@
         </div>
     </div>
     <?php $this->load->view('templates/scripts'); ?>
+    <script src="<?= get_asset_url('js/register.js');?>"></script>
 </body>
 
 </html>

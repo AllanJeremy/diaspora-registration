@@ -41,11 +41,16 @@ class Site extends CI_Controller
         } 
         
         //If we are on the teams or home page ~ load appropriate models
-        if($page == 'teams' || $page == 'home')
-        {
-            $this->load->model('country_model');
-            $countries = $this->country_model->get_countries();
-            $data['countries'] = $countries->result_object();
+        switch ($page) {
+            case 'teams':
+                $this->load->model('team_model');
+                $teams = $this->team_model->get_teams();
+                $data['teams'] = $teams->result_object();
+            case 'home':
+                $this->load->model('country_model');
+                $countries = $this->country_model->get_countries();
+                $data['countries'] = $countries->result_object();
+            break;
         }
         
         $data['nav_active'] = array();

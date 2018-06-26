@@ -2,14 +2,6 @@
 
 class User_model extends CI_Model
 {
-    protected static $required_fields = array(
-        'first_name',
-        'last_name',
-        'country_code',
-        'phone',
-        'email'
-    );
-
     function __construct()
     {
         $this->load->database();
@@ -29,12 +21,19 @@ class User_model extends CI_Model
             .TBL_COUNTRIES.'.name,'
             .TBL_COUNTRIES.'.phone_code,'
             .TBL_USERS.'.phone,'
-            
+
+            .TBL_USERS.'.team_id,'
+            .TBL_TEAMS,'.team_name,'
+            .TBL_TEAMS,'.team_details,'
+            .TBL_TEAMS,'.team_image,'
+            .TBL_TEAMS,'.date_added,'
+
             .TBL_USERS.'.active'
         );
         $this->db->from(TBL_USERS);
 
         $this->db->join(TBL_COUNTRIES,TBL_USERS.'.country_code='.TBL_COUNTRIES.'.id');
+        $this->db->join(TBL_TEAMS,TBL_USERS.'.team_id='.TBL_TEAMS.'.id');
     }
 
     // Get users ~ $limit is the number of records to fetch
