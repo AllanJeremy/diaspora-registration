@@ -24,7 +24,15 @@
         $nav_active['petition_active'] = ACTIVE_NAV_ITEM_CLASS;
         $this->load->view('templates/navigation',$nav_active); 
     ?>
-    <div class="container mt-3 mb-4">
+    <div class="container mt-4 mb-4">
+        <div class="jumbotron content-container">
+            <h2 class="pb-2">The Petition</h2>
+            <p>For over a decade now, and after the promulgation of the constitution, Kenyans in the Diaspora have agitated for their right to vote with very little success. The Constitution of Kenya 2010 reaffirmed and entrenched this right into law but that aspect has been systematically undermined by the IEBC. Dissatisfied with IEBC’s intransigence, Kenya Diaspora Alliance and other civil society groups petitioned the Supreme Court and in 2015, the Court ordered the IEBC to comply with the law. To date, such orders remain unobeyed in blatant violation disregard of the Supreme Court orders. No person or agency has been held to account for this gross disregard of the constitution and disobedience of Kenya’s Supreme Court. This disobedience of the law has disenfranchised hundreds of thousands of Kenyans eligible to vote in the 2013 and 2017 general elections.</p>
+            <p>KDMV’s singular objective is to advocate for and ensure adherence to the law by IEBC, the Kenyan government and other relevant agencies. Ours is an all-volunteer public-private campaign for necessary action ahead of the elections in 2022. We are demanding that IEBC follows the letter, spirit and of the law.</p>
+            <p>Joining the campaign below confirms that you agree with KDMV’s effort that every eligible Kenyan must be permitted to vote in accordance with the law. Yours will be among millions of voices that will presented to the IEBC, the judiciary, the executive and other relevant authorities in Kenya and elsewhere for this purpose.</p>
+            <p>Thank you for your interest in this crucial effort.</p>
+        </div>
+
         <div class="row">
             <div class="col-md-8 col-lg-6 col-xl-5 ml-auto mr-auto" style="height:auto;">
                 <div class="d-flex flex-column justify-content-center align-items-center" style="height:auto;">
@@ -32,7 +40,7 @@
                         <h1 class="d-none d-sm-inline text-success">Kenya Diaspora Must Vote</h1>
                         <h2 class="d-inline d-sm-none text-success">Kenya Diaspora Must Vote</h2>
                     </div> -->
-                    <form method="post" class="p-4 mb-2 w-100" style="background-color:rgb(216,216,216);width:480px;">
+                    <form method="post" class="p-4 mb-2 w-100" style="background-color:rgb(216,216,216);width:480px;" id="register">
                         <div class="alert d-none" role="alert" id="resultMessageAlert"><span>Successfully sent the information<br></span></div>
                         <div class="pr-sm-4 pl-sm-4">
                             <div class="form-group text-center text-dark">
