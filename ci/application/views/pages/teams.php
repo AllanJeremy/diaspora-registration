@@ -39,7 +39,7 @@
         if($teams_exist): 
             foreach($teams as $team):
     ?>
-        <div class="col-sm-6 col-lg-4">
+        <div class="col-md-6 col-lg-4">
             <div class="row no-gutters team-row">
                 <div class="col-12">
                     <div style="background-image:url(<?= $team->team_image ?? get_asset_url(PLACEHOLDER_TEAM_IMAGE_URL); ?>);height:30vh;background-color:#212121;background-position:center;background-size:cover;background-repeat:no-repeat;">
@@ -55,7 +55,7 @@
 
                 <?php if(isset($team->team_details)): //Display any details if they exist for the team ?>
                 <div class="col-12">
-                    <div class="bg-light p-4 team-card" style="min-height:38vh;">
+                    <div class="bg-light p-4 team-card" style="min-height:35vh;">
                         <?= $team->team_details; ?>
                     </div>
                 </div>

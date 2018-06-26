@@ -1,5 +1,5 @@
 <nav class="navbar navbar-light navbar-expand-md sticky-top bg-light">
-    <div class="container-fluid"><a class="navbar-brand" href="#"><img src="<?= get_asset_url('img/logo.png');?>"></a><button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+    <div class="container-fluid"><a class="navbar-brand" href="#"><img src="<?= get_asset_url('img/logo.png');?>" height="48"></a><button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
             <div
                 class="collapse navbar-collapse" id="navcol-1">
                 <ul class="nav navbar-nav mx-auto site-nav">
