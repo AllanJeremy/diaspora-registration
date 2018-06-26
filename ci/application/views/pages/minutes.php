@@ -21,7 +21,6 @@
                 <div class="card info-card">
                     <div class="card-body">
                         <h4 class="card-title" style="font-size:24px;"><?= $minutes->post_title; ?></h4>
-                        <h6 class="text-muted card-subtitle mb-2" style="font-size:14px;">Date: <?= $minutes->date_posted; ?>&nbsp;</h6>
                         
                         <?= $minutes->post_details; ?>
                     </div>

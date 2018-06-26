@@ -15,14 +15,14 @@
             <div class="d-flex align-items-center order-12" style="height:200px;">
                 <div class="container">
                     <h1 class="text-center p-2" style="color:rgb(242,245,248);font-size:56px;font-weight:bold;font-family:Roboto, sans-serif;">DIASPORA MUST VOTE</h1>
-                    <h3 class="text-center p-2" style="color:rgb(242,245,248);padding-bottom:0.25em;font-weight:300;font-size:24px;line-height:32px;">KDMV&rsquo;s singular objective is to advocate for and ensure adherence to the law by IEBC and the Kenyan government. Ours is an all-volunteer public-private campaign for necessary action ahead of the elections in 2022. We are demanding that IEBC follows the letter, spirit and of the law.</h3>
+                    <h3 class="text-center p-2" style="color:rgb(242,245,248);padding-bottom:0.25em;font-weight:300;font-size:24px;line-height:32px;">KDMV&rsquo;s singular objective is to advocate for and ensure adherence to the law by IEBC and the Kenyan government</h3>
                     
                     <div class="row">
                         <div class="col-sm-6 col-md-4 col-lg-3 ml-auto">
                             <a class="btn btn-outline-secondary btn-lg btn-block p-4 m-2 m-sm-4" role="button" href="#details" id="btn-joinCampaign">READ MORE</a>
                         </div>
                         <div class="col-sm-6 col-md-4 col-lg-3 mr-auto">
-                            <a class="btn btn-secondary btn-block btn-lg p-4 m-2 m-sm-4" role="button" href="<?= base_url('petition#register'); ?>" id="btn-joinCampaign">JOIN THE CAMPAIGN</a>
+                            <a class="btn btn-secondary btn-block btn-lg p-4 m-2 m-sm-4" role="button" href="<?= base_url('register'); ?>" id="btn-joinCampaign">JOIN THE CAMPAIGN</a>
                         </div>
                     </div>
                    
@@ -55,12 +55,7 @@
         <!-- </div> -->
     </div>
 
-    <div class="jumbotron text-center mb-0">
-        <h1>Ready to join us?</h1>
-        <p>
-            <a class="btn btn-dark btn-lg p-4 m-2 m-sm-4" role="button" href="<?= base_url('petition#register'); ?>" id="btn-joinCampaign">JOIN THE CAMPAIGN</a>
-        </p>
-    </div>
+    <?php $this->load->view('templates/join_campaign_banner'); ?>
     <?php $this->load->view('templates/scripts'); ?>
 </body>
 

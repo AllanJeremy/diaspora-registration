@@ -29,17 +29,15 @@ class Site extends CI_Controller
     //View any other page
     function view($page)
     {
-        switch($page)
-        {
-            case 'teams':
-
-        }
         //If the view file does not exist 
         if(!file_exists(APPPATH.'views/pages/'.$page.'.php'))
         {
             show_404();
         } 
         
+        $data['page'] = $page;
+        $data['page_title'] = ucfirst($page).' | '.ucwords(SITE_TITLE);
+
         //If we are on the teams or home page ~ load appropriate models
         switch ($page) {
             case 'teams':
@@ -48,10 +46,11 @@ class Site extends CI_Controller
                 $data['teams'] = $teams->result_object();
                 $data['teams_exist'] = isset($data['teams']) && (@count($data['teams'])>0);
             
-            case 'petition':
+            case 'register':
                 $this->load->model('country_model');
                 $countries = $this->country_model->get_countries();
                 $data['countries'] = $countries->result_object();
+                $data['page_title'] = 'Join the Campaign | '.ucwords(SITE_TITLE);
             break;
 
             case 'minutes':
@@ -71,9 +70,7 @@ class Site extends CI_Controller
         // If the page is home or teams ~ load the country list
         
         $data['nav_active'] = array();
-        
-        $data['page'] = $page;
-        $data['page_title'] = ucfirst($page).' | '.ucwords(SITE_TITLE);
+
 
         $view_to_load = SITE_VIEW_PATH.'pages/'.$page;
         $this->load->view($view_to_load,$data);
