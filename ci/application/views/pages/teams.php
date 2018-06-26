@@ -55,7 +55,7 @@
 
                 <?php if(isset($team->team_details)): //Display any details if they exist for the team ?>
                 <div class="col-12">
-                    <div class="bg-light p-4 team-card" style="min-height:35vh;">
+                    <div class="bg-light p-4 team-card" style="min-height:40vh;">
                         <?= $team->team_details; ?>
                     </div>
                 </div>

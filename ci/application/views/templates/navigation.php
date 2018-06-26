@@ -6,6 +6,7 @@
                     <li class="nav-item" role="presentation"><a class="nav-link <?= $home_active ?? ''; ?>" href="<?= base_url();?>">Home</a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link <?= $petition_active ?? ''; ?>" href="<?= base_url('petition');?>">Petition</a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link <?= $teams_active ?? ''; ?>" href="<?= base_url('teams');?>">Teams</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link <?= $minutes_active ?? ''; ?>" href="<?= base_url('minutes');?>">Minutes</a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link <?= $announcements_active ?? ''; ?>" href="<?= base_url('announcements');?>">Announcements</a></li>
                 </ul>
         </div>

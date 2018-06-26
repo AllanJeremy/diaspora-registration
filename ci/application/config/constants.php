@@ -90,7 +90,7 @@ TABLES BEING USED
 define('TBL_USERS','users');
 define('TBL_COUNTRIES','countries');
 define('TBL_TEAMS','teams');
-define('TBL_ANNOUNCMENTS','announcements');
+define('TBL_POSTS','posts');
 
 /*
 CUSTOM CONSTANTS
