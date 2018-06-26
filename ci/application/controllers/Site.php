@@ -47,12 +47,15 @@ class Site extends CI_Controller
                 $teams = $this->team_model->get_teams();
                 $data['teams'] = $teams->result_object();
                 $data['teams_exist'] = isset($data['teams']) && (@count($data['teams'])>0);
-            case 'home':
+            
+            case 'petition':
                 $this->load->model('country_model');
                 $countries = $this->country_model->get_countries();
                 $data['countries'] = $countries->result_object();
             break;
         }
+
+        // If the page is home or teams ~ load the country list
         
         $data['nav_active'] = array();
         
