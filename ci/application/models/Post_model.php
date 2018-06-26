@@ -20,11 +20,11 @@ class Post_model extends CI_Model
         return $this->db->get();
     }
 
-    private function _get_post_by_type($type)
+    private function _get_post_by_type($post_type)
     {
         $this->_post_joins();
-        $this->where(TBL_POSTS.'.post_type',$post_type);
-        return $this->get();
+        $this->db->where(TBL_POSTS.'.post_type',$post_type);
+        return $this->db->get();
     }
 
     // Get announcements

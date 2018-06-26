@@ -53,6 +53,19 @@ class Site extends CI_Controller
                 $countries = $this->country_model->get_countries();
                 $data['countries'] = $countries->result_object();
             break;
+
+            case 'minutes':
+                $this->load->model('post_model');//TODO: DRY this up
+                $minutes = $this->post_model->get_minutes();
+                $data['minutes_list'] = $minutes->result_object();
+                $data['minutes_exist'] = isset($data['minutes_list']) && (@count($data['minutes_list'])>0);
+            break;
+            case 'announcements':
+                $this->load->model('post_model');//TODO: DRY this up
+                $announcements = $this->post_model->get_announcements();
+                $data['announcement_list'] = $announcements->result_object();
+                $data['announcements_exist'] = isset($data['announcement_list']) && (@count($data['announcement_list'])>0);
+            break;
         }
 
         // If the page is home or teams ~ load the country list

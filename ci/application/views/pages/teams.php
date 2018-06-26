@@ -68,11 +68,11 @@
     </div> <!-- End of row -->
     <?php
         else: // * No teams were found ~ display informational message
+            $this->load->view('templates/content_missing',array(
+                'title'=>'No teams found. Please check back later'
+            ));
+        endif; 
     ?>
-            <div class="jumbotron d-flex justify-content-center align-items-center">
-                <h1>No teams found. Please check back later</h1>
-            </div>
-    <?php endif; ?>
     </div>
     <div class="container">
         <div class="row mt-3">
