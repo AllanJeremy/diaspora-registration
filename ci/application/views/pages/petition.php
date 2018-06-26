@@ -32,7 +32,7 @@
                         <h1 class="d-none d-sm-inline text-success">Kenya Diaspora Must Vote</h1>
                         <h2 class="d-inline d-sm-none text-success">Kenya Diaspora Must Vote</h2>
                     </div> -->
-                    <form method="post" class="p-4 mb-2 w-100" style="background-color:#e7e7e7;width:480px;">
+                    <form method="post" class="p-4 mb-2 w-100" style="background-color:rgb(216,216,216);width:480px;">
                         <div class="alert d-none" role="alert" id="resultMessageAlert"><span>Successfully sent the information<br></span></div>
                         <div class="pr-sm-4 pl-sm-4">
                             <div class="form-group text-center text-dark">

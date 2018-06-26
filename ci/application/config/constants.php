@@ -98,6 +98,8 @@ CUSTOM CONSTANTS
 define('SITE_TITLE','Diaspora Must Vote');
 define('SITE_VIEW_PATH','');
 
+define('PLACEHOLDER_TEAM_IMAGE_URL','assets/img/placeholder_team.jpeg');
+
 define('ACTIVE_NAV_ITEM_CLASS','active');
 
 define('API_RESPONSE_TYPE','application/json');

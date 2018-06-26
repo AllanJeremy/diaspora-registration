@@ -46,6 +46,7 @@ class Site extends CI_Controller
                 $this->load->model('team_model');
                 $teams = $this->team_model->get_teams();
                 $data['teams'] = $teams->result_object();
+                $data['teams_exist'] = isset($data['teams']) && (@count($data['teams'])>0);
             case 'home':
                 $this->load->model('country_model');
                 $countries = $this->country_model->get_countries();

@@ -4,6 +4,13 @@
 <head>
     <?php $this->load->view('templates/head_content'); ?>
     <style>
+        body{
+            background-color: rgb(240,240,240);
+        }
+
+        .team-card{
+            box-shadow: 2px 2px 5px #ccc;
+        }
         /* Progress bar animation */
         .progress-infinite{           
             animation: progress_loader 1s infinite linear;
@@ -25,146 +32,54 @@
         $nav_active['teams_active'] = ACTIVE_NAV_ITEM_CLASS;
         $this->load->view('templates/navigation',$nav_active); 
     ?>
-    <div class="container" id="teams">
-        <div class="row no-gutters team-row">
-            <div class="col-md-6">
-                <div style="background-image:url(&quot;assets/img/pexels-photo-926987.jpeg&quot;);height:50vh;background-color:#212121;background-position:center;background-size:cover;background-repeat:no-repeat;">
-                    <div class="d-flex justify-content-center align-items-center" style="height:inherit;min-height:initial;width:100%;position:absolute;left:0;background-color:rgba(18,18,18,0.75);">
-                        <div class="d-flex align-items-center order-12" style="height:200px;">
-                            <div class="container">
-                                <h1 class="text-center" style="color:rgb(242,245,248);font-weight:bold;font-family:Roboto, sans-serif;">Communications &amp; Media Relations</h1>
+    <div class="container-fluid" id="teams">
+
+    <div class="row"> <!-- Start of row -->
+    <?php 
+        if($teams_exist): 
+            foreach($teams as $team):
+    ?>
+        <div class="col-sm-6 col-lg-4">
+            <div class="row no-gutters team-row">
+                <div class="col-12">
+                    <div style="background-image:url(<?= $team->team_image ?? get_asset_url(PLACEHOLDER_TEAM_IMAGE_URL); ?>);height:30vh;background-color:#212121;background-position:center;background-size:cover;background-repeat:no-repeat;">
+                        <div class="d-flex justify-content-center align-items-center" style="height:inherit;min-height:initial;width:100%;position:absolute;left:0;background-color:rgba(18,18,18,0.75);">
+                            <div class="d-flex align-items-center order-12" style="min-height:20vh;">
+                                <div class="container">
+                                    <h1 class="text-center" style="color:rgb(242,245,248);font-weight:bold;font-family:Roboto, sans-serif;"><?= $team->team_name; ?></h1>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col">
-                <div class="d-flex flex-column justify-content-center pl-md-4 pr-md-4" style="min-height:50vh;">
-                    <ul class="team-list">
-                        <li style="line-height:28px;">&nbsp;All internal and external communications in print, radio, TV, online, in-person</li>
-                        <li>Review of all KDMV documentation prior to release</li>
-                        <li>Media contacts</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="row no-gutters team-row">
-            <div class="col-md-6">
-                <div style="background-image:url(&quot;assets/img/pexels-photo-267350.jpeg&quot;);height:50vh;background-color:#212121;background-position:center;background-size:cover;background-repeat:no-repeat;">
-                    <div class="d-flex justify-content-center align-items-center" style="height:inherit;min-height:initial;width:100%;position:absolute;left:0;background-color:rgba(221,221,221,0.8);color:rgba(163,163,163,0.43);">
-                        <div class="d-flex align-items-center order-12" style="height:200px;">
-                            <div class="container">
-                                <h1 class="text-center" style="color:rgb(24,24,24);font-weight:bold;font-family:Roboto, sans-serif;">Information Technology &amp; Social Media</h1>
-                            </div>
-                        </div>
+
+                <?php if(isset($team->team_details)): //Display any details if they exist for the team ?>
+                <div class="col-12">
+                    <div class="bg-light p-4 team-card" style="min-height:38vh;">
+                        <?= $team->team_details; ?>
                     </div>
                 </div>
-            </div>
-            <div class="col">
-                <div class="d-flex flex-column justify-content-center pl-md-4 pr-md-4" style="min-height:50vh;">
-                    <ul class="team-list">
-                        <li style="line-height:28px;">All matters digital</li>
-                        <li>Online presence and management</li>
-                        <li>Oversight of KDMV’s persona online</li>
-                    </ul>
-                </div>
-            </div>
+                <?php endif;?>
+            </div> 
         </div>
-        <div class="row no-gutters team-row">
-            <div class="col-md-6">
-                <div style="background-image:url(&quot;assets/img/pexels-photo-534204.jpeg&quot;);height:50vh;background-color:#212121;background-position:center;background-size:cover;background-repeat:no-repeat;">
-                    <div class="d-flex justify-content-center align-items-center" style="height:inherit;min-height:initial;width:100%;position:absolute;left:0;background-color:rgba(18,18,18,0.75);">
-                        <div class="d-flex align-items-center order-12" style="height:200px;">
-                            <div class="container">
-                                <h1 class="text-center" style="color:rgb(242,245,248);font-weight:bold;font-family:Roboto, sans-serif;">Legal &amp; Public Affairs</h1>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+    <?php 
+            endforeach;
+    ?>
+    </div> <!-- End of row -->
+    <?php
+        else: // * No teams were found ~ display informational message
+    ?>
+            <div class="jumbotron d-flex justify-content-center align-items-center">
+                <h1>No teams found. Please check back later</h1>
             </div>
-            <div class="col">
-                <div class="d-flex flex-column justify-content-center pl-md-4 pr-md-4" style="min-height:50vh;">
-                    <ul class="team-list">
-                        <li style="line-height:28px;">Petition language and processing</li>
-                        <li>Litigation management and outside counsel relations</li>
-                        <li>KDMV pro bono legal counsel</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="row no-gutters team-row">
-            <div class="col-md-6">
-                <div style="background-image:url(&quot;assets/img/pexels-photo-1020323.jpeg&quot;);height:50vh;background-color:#212121;background-position:center;background-size:cover;background-repeat:no-repeat;">
-                    <div class="d-flex justify-content-center align-items-center" style="height:inherit;min-height:initial;width:100%;position:absolute;left:0;background-color:rgba(221,221,221,0.8);color:rgba(163,163,163,0.43);">
-                        <div class="d-flex align-items-center order-12" style="height:200px;">
-                            <div class="container">
-                                <h1 class="text-center" style="color:rgb(24,24,24);font-weight:bold;font-family:Roboto, sans-serif;">Events &amp; Programs</h1>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="d-flex flex-column justify-content-center pl-md-4 pr-md-4" style="min-height:50vh;">
-                    <ul class="team-list">
-                        <li style="line-height:28px;">All KDMV events and activities, including planning, execution and evaluation</li>
-                        <li>Community engagement and outreach</li>
-                        <li>Volunteer relations</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="row no-gutters team-row">
-            <div class="col-md-6">
-                <div style="background-image:url(&quot;assets/img/pexels-photo-696680.jpeg&quot;);height:50vh;background-color:#212121;background-position:center;background-size:cover;background-repeat:no-repeat;">
-                    <div class="d-flex justify-content-center align-items-center" style="height:inherit;min-height:initial;width:100%;position:absolute;left:0;background-color:rgba(18,18,18,0.75);">
-                        <div class="d-flex align-items-center order-12" style="height:200px;">
-                            <div class="container">
-                                <h1 class="text-center" style="color:rgb(242,245,248);font-weight:bold;font-family:Roboto, sans-serif;">Resource Mobilization</h1>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="d-flex flex-column justify-content-center pl-md-4 pr-md-4" style="min-height:50vh;">
-                    <ul class="team-list">
-                        <li style="line-height:28px;">Budget </li>
-                        <li>Fundraising</li>
-                        <li>Management of KDMV financial and human resources</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="row no-gutters team-row">
-            <div class="col-md-6">
-                <div style="background-image:url(&quot;assets/img/pexels-photo-265087.jpeg&quot;);height:50vh;background-color:#212121;background-position:center;background-size:cover;background-repeat:no-repeat;">
-                    <div class="d-flex justify-content-center align-items-center" style="height:inherit;min-height:initial;width:100%;position:absolute;left:0;background-color:rgba(221,221,221,0.8);color:rgba(163,163,163,0.43);">
-                        <div class="d-flex align-items-center order-12" style="height:200px;">
-                            <div class="container">
-                                <h1 class="text-center" style="color:rgb(24,24,24);font-weight:bold;font-family:Roboto, sans-serif;">Marketing &amp; Promotion</h1>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="d-flex flex-column justify-content-center pl-md-4 pr-md-4" style="min-height:50vh;">
-                    <ul class="team-list">
-                        <li style="line-height:28px;">Materials design, development and distribution</li>
-                        <li>KDMV clearing house for all public events and programs</li>
-                        <li>Support to KDMV Teams </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+    <?php endif; ?>
     </div>
-    <div class="container mt-3">
-        <div class="row">
+    <div class="container">
+        <div class="row mt-3">
             <div class="col-md-8 col-lg-6 col-xl-5 ml-auto mr-auto" style="height:auto;">
                 <div class="d-flex flex-column justify-content-center align-items-center" style="height:auto;">
 
-                    <form method="post" class="p-4 mb-2 w-100" style="background-color:#e7e7e7;width:480px;">
+                    <form method="post" class="p-4 mb-2 w-100" style="background-color:rgb(216,216,216);width:480px;">
                         <div class="alert d-none" role="alert" id="resultMessageAlert"><span>Successfully sent the information<br></span></div>
                         <div class="pr-sm-4 pl-sm-4">
                             <div class="form-group text-center text-dark">
@@ -178,7 +93,7 @@
                                 <select name="inputTeam" id="inputTeam" class="form-control">
                                     <optgroup label="Team">
                                         <?php 
-                                        if(isset($teams) && @count($teams)>0): 
+                                        if($teams_exist): 
                                             foreach($teams as $team):
                                         ?>
                                         <option value="<?= $team->id;?>"><?= $team->team_name; ?></option>
