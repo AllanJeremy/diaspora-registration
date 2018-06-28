@@ -19,7 +19,7 @@
                     
                     <div class="row">
                         <div class="col-sm-6 col-md-4 col-lg-3 ml-auto">
-                            <a class="btn btn-outline-secondary btn-lg btn-block p-4 m-2 m-sm-4" role="button" href="#details" id="btn-joinCampaign">READ MORE</a>
+                            <a class="btn btn-dark btn-lg btn-block p-4 m-2 m-sm-4" role="button" href="#details" id="btn-readMore">READ MORE</a>
                         </div>
                         <div class="col-sm-6 col-md-4 col-lg-3 mr-auto">
                             <a class="btn btn-secondary btn-block btn-lg p-4 m-2 m-sm-4" role="button" href="<?= base_url('register'); ?>" id="btn-joinCampaign">JOIN THE CAMPAIGN</a>
@@ -38,7 +38,7 @@
                 <p>KDMV&rsquo;s singular objective is to advocate for and ensure adherence to the law by IEBC and the Kenyan government. Ours is an all-volunteer public-private campaign for necessary action ahead of the elections in 2022. We are demanding that IEBC follows the letter, spirit and of the law.</p>
                 <p>In the U.S., KDMV coordinates volunteers through Regional Centers based in Minneapolis (MN), New York (NY), New Jersey (NJ), Connecticut (C), Seattle (WA), Dallas (TX), Los Angeles (CA) and Washington DC. We are seeking volunteer leaders in Canada, Europe, Middle East, China, Japan, Australia and Africa.</p>
                 <p><strong>To achieve this goal, KDMV pursues a three-pronged approach:</strong></p>
-                <ol start="2019">
+                <ol start="1">
                 <li><strong><u>Petition</u></strong><strong>:</strong> we are seeking at least 1 million signatures by July 31, 2019. The signatures and accompanying petitions will be presented to the Kenya government, legislature and relevant public officials.</li>
                 <li><strong><u>Litigation</u></strong><strong>:</strong> We will institute court proceedings seeking to hold IEBC and relevant agencies in contempt of the Supreme Court. Local counsel has been retained.</li>
                 <li><strong><u>Public/Private Advocacy</u></strong><strong>:</strong> Events, Media, Lobbying etc. This effort is led by the KDMV Communications team.</li>
