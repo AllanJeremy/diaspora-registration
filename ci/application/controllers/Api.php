@@ -8,6 +8,7 @@ class Api extends CI_Controller
     function __construct()
     {
         parent::__construct();
+
         $this->load->model('user_model');
     }
     
@@ -21,6 +22,13 @@ class Api extends CI_Controller
     // Generate a json response
     private function _gen_response($is_ok,$message='',$data=NULL)
     {
+        $access_url = base_url();
+        $substr_len = (strlen($access_url)) - 1;#Length of the substring
+        $access_url = substr($access_url,0,$substr_len);#Removing the / after the base url
+        
+        //Set access allowed origin
+        $this->output->set_header('Access-Control-Allow-Origin: '.$access_url);
+
         // Set the application type to JSON
         $this->output->set_content_type(API_RESPONSE_TYPE,'UTF-8');
 

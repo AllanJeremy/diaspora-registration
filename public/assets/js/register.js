@@ -1,5 +1,5 @@
 $(document).ready(function(){
-    var baseApiUrl = 'http://localhost/diaspora/public/api/';
+    var baseApiUrl = 'https://localhost/diaspora/public/api/';
     var fadeSpeed = 200;
 
     var $registerProgress = $('#registerProgress');
@@ -66,6 +66,7 @@ $(document).ready(function(){
 
         //If there is a valid team ID ~ meaning we are in teams page, add the team_id to data
         if(teamId){
+         
             data.team_id = teamId;
         }
 
