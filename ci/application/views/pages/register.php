@@ -70,6 +70,7 @@
     </div>
 
     <?php $this->load->view('templates/scripts'); ?>
+    <script src="<?= get_asset_url('js/register.js');?>"></script>
 </body>
 
 </html>
